@@ -1,17 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import client from './client';
+import { ApolloProvider } from '@apollo/client';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  // Provider는 기본적으로 애플리케이션안의 모두가 이 clent에 접근할 수 있게 해준다.
   <React.StrictMode>
-    <App />
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
